@@ -13,6 +13,10 @@ public class Result {
         return value;
     }
 
+    public int getLength() {
+        return value.length();
+    }
+
     // Helper method.
     protected String nv(String s) {
         return s != null ? s : "";
