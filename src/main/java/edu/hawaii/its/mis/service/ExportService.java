@@ -26,7 +26,7 @@ import com.jcraft.jsch.ChannelSftp.LsEntry;
 import edu.hawaii.its.mis.sftp.SftpSessionFactory;
 
 @Component
-public class ParkingService {
+public class ExportService {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
     private ResultRowMapper mapper = new ResultRowMapper();
@@ -37,7 +37,7 @@ public class ParkingService {
     @Autowired
     private SftpSessionFactory factory;
 
-    @Value("${export.filename:parking_extract.txt}")
+    @Value("${export.filename:export_data.txt}")
     private String filename;
 
     @Value("${export.timestamp.format}")
@@ -45,6 +45,12 @@ public class ParkingService {
 
     @Value("${export.sql}")
     private String sql;
+
+    @Value("${export.line.lenth.check:false}")
+    private boolean lineCheck;
+
+    @Value("${export.line.length:0}")
+    private int lineLength;
 
     @PostConstruct
     public void afterPropertiesSet() {
@@ -75,6 +81,17 @@ public class ParkingService {
                 new BufferedWriter(
                         new FileWriter(filename)))) {
             for (Result r : results) {
+                if (lineCheck) {
+                    if (lineLength != r.getLength()) {
+                        String msg = "Error: "
+                                + "expected line length: " + lineLength
+                                + "; actual line lenth: " + r.getLength();
+                        logger.error(msg);
+                        logger.error("Error: line: " + r.getValue());
+                        throw new IOException("Error; see log file.");
+                    }
+                }
+
                 out.println(r.getValue());
             }
         }
