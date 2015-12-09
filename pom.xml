@@ -3,10 +3,10 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>edu.hawaii.its.mis</groupId>
-    <artifactId>parkingbt</artifactId>
+    <artifactId>exporter</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
-    <name>parkingbt</name>
+    <name>exporter</name>
     <description>Program to export selected data for the parking office.</description>
 
     <prerequisites>
@@ -17,7 +17,7 @@
         <java.version>1.8</java.version>
         <junit.version>4.12</junit.version>
         <maven-compiler-plugin.version>3.2</maven-compiler-plugin.version>        
-        <start-class>edu.hawaii.its.mis.ParkingApplication</start-class>
+        <start-class>edu.hawaii.its.mis.ExportApplication</start-class>
     </properties>
 
     <parent>
