@@ -9,22 +9,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import edu.hawaii.its.mis.service.ParkingService;
+import edu.hawaii.its.mis.service.ExportService;
 
 @SpringBootApplication
-public class ParkingApplication implements CommandLineRunner {
+public class ExportApplication implements CommandLineRunner {
 
     @Autowired
-    private ParkingService parkingService;
+    private ExportService exportService;
 
     public static void main(String[] args) {
         checkUsage(args);
-        SpringApplication.run(ParkingApplication.class, args);
+        SpringApplication.run(ExportApplication.class, args);
     }
 
     @Override
     public void run(String... args) throws Exception {
-        parkingService.export();
+        exportService.export();
     }
 
     public static void checkUsage(String[] args) {
@@ -50,8 +50,8 @@ public class ParkingApplication implements CommandLineRunner {
         }
 
         if (!hasRequiredArg) {
-            usage.append("usage: java -jar parkingbt.jar ");
-            usage.append("--spring.config.location=parkingbt.properties");
+            usage.append("usage: java -jar exporter.jar ");
+            usage.append("--spring.config.location=exporter.properties");
             System.err.println(usage);
             System.exit(1);
         }
