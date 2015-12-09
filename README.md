@@ -26,6 +26,10 @@ To build a deployable jar file:
 
     $ mvn clean package
 
+Usage:
+
+    $ java -jar exporter.jar --spring.config.location=exporter.properties
+
 **Important Note**
 
 The UH Number is restricted by University of Hawaii policy, so be sure not to expose it on any public page.
