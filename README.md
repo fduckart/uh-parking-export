@@ -1,10 +1,10 @@
-uh-parking-export
+uh-sql-export
 ===========
 
-Parking Export
+SQL Export
 
 ##### Overview
-A command-line program to create a parking export file.
+A command-line program to create a SQL export file.
 
 ##### Build Tool
 First, you need to download and install maven (version 3.2.3+).
@@ -15,7 +15,7 @@ You'll need a Java JDK to build and run the project (version 1.8).
 The files for the project are kept in a code repository,
 available from here:
 
-https://github.com/fduckart/uh-parking-export
+https://github.com/fduckart/uh-sql-export
 
 ##### Building
 Install the necessary project dependencies:
