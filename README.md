@@ -1,9 +1,6 @@
 uh-sql-export
 ===========
 
-[![Build Status](https://travis-ci.org/fduckart/uh-sql-export.png?branch=master)](https://travis-ci.org/fduckart/uh-sql-export)
-***
-
 SQL Export
 
 ##### Overview
