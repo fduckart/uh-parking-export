@@ -2,13 +2,15 @@ package edu.hawaii.its.mis.config;
 
 import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
-import oracle.jdbc.pool.OracleDataSource;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 import org.springframework.util.Assert;
+
+import oracle.jdbc.pool.OracleDataSource;
 
 @Configuration
 public class AppConfiguration {
