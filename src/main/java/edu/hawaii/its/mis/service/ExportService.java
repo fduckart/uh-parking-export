@@ -1,7 +1,8 @@
 package edu.hawaii.its.mis.service;
 
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
-
+import javax.annotation.PostConstruct;
+import javax.sql.DataSource;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -12,9 +13,6 @@ import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-
-import javax.annotation.PostConstruct;
-import javax.sql.DataSource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -57,6 +55,9 @@ public class ExportService {
     @Value("${export.line.length:0}")
     private int lineLength;
 
+    @Value("${export.header:}")
+    private String header;
+
     @PostConstruct
     public void afterPropertiesSet() {
         Assert.hasLength(sql, "property 'sql' is required");
@@ -85,6 +86,11 @@ public class ExportService {
         try (PrintWriter out = new PrintWriter(
                 new BufferedWriter(
                         new FileWriter(filename)))) {
+
+            if (header != null && header.length() > 0) {
+                out.println(header);
+            }
+
             for (Result r : results) {
                 if (lineCheck) {
                     if (lineLength != r.getLength()) {
