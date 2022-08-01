@@ -1,3 +1,5 @@
+[![Build](https://github.com/UniversityOfHawaii/uh-sql-export/actions/workflows/build-test.yml/badge.svg)](https://github.com/UniversityOfHawaii/uh-sql-export/actions/workflows/build.yml)
+
 uh-sql-export
 ===========
 
